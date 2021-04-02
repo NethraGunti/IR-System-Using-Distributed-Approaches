@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Search Engine | Results</title>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><a class="navbar-brand" href="{% url 'search' %}">Search Engine</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"><button class="btn btn-primary ml-auto" type="button">Nethra Gunti</button></div>
+        </div>
+    </nav>
+    <section class="justify-content-center features-icons bg-light text-center">
+        <div class="container">
+            <p style="font-style: italic; text-decoration: underline;">
+                fetched search results in {{endtime}} seconds
+            </p>
+        <br>
+            <div class="row">
+                {% for question in results %}
+                    <div class="col-lg-4 text-center">
+                        <div class="text-center mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
+                            <div class="text-center d-flex justify-content-center align-items-center features-icons-icon">
+                                <h5 class="text-center text-default">{{ question.original }}</h5>
+                            </div>
+                            <a href="{{ question.link }}">
+                                <p class="lead text-center text-break mb-0">{{ question.link }}</p>                                
+                            </a>
+                        </div>
+                    </div>                
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1 my-auto h-100 text-center text-lg-left">
+                    <p class="text-center text-muted small mb-4 mb-lg-0">Pythonic Search Engine Built on Django using Distributed Approaches (python-celery)<br>Refer to Documents for More Details</p>
+                    <p class="text-center text-muted small mb-4 mb-lg-0">© Brand 2021. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="../../static/js/jquery.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
